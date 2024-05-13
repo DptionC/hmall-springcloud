@@ -1,0 +1,213 @@
+11:18:50:714  INFO 4636 --- [main] com.hmall.item.ItemApplication           : Starting ItemApplication using Java 11.0.22 on Dpbiceps with PID 4636 (D:\JavaWeb\springcloud\hmall\item-service\target\classes started by Dp in D:\JavaWeb\springcloud\hmall)
+11:18:50:714 DEBUG 4636 --- [main] com.hmall.item.ItemApplication           : Running with Spring Boot v2.7.12, Spring v5.3.27
+11:18:50:714  INFO 4636 --- [main] com.hmall.item.ItemApplication           : The following 1 profile is active: "local"
+11:18:52:490  INFO 4636 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+11:18:52:494  INFO 4636 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.37] using APR version [1.7.4].
+11:18:52:494  INFO 4636 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+11:18:52:494  INFO 4636 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+11:18:52:501  INFO 4636 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1u  30 May 2023]
+11:18:52:508  INFO 4636 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+11:18:52:508  INFO 4636 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+11:18:52:685  INFO 4636 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+11:18:52:685  INFO 4636 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1900 ms
+11:18:54:821  INFO 4636 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+11:18:54:971  INFO 4636 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+11:18:54:971  INFO 4636 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+11:18:54:971  INFO 4636 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+11:18:55:026  INFO 4636 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+11:18:55:267  INFO 4636 --- [main] com.hmall.item.ItemApplication           : Started ItemApplication in 5.238 seconds (JVM running for 7.175)
+11:19:13:455  INFO 4636 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:19:13:455  INFO 4636 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+11:19:13:457  INFO 4636 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+11:19:24:913  INFO 4636 --- [http-nio-8081-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+11:19:33:416  INFO 4636 --- [http-nio-8081-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+11:19:33:431 DEBUG 4636 --- [http-nio-8081-exec-3] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+11:19:33:460 DEBUG 4636 --- [http-nio-8081-exec-3] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 1(Long)
+11:19:33:481 DEBUG 4636 --- [http-nio-8081-exec-3] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 0
+11:19:44:147 DEBUG 4636 --- [http-nio-8081-exec-1] c.h.i.m.ItemMapper.selectList_mpCount    : ==>  Preparing: SELECT COUNT(*) AS total FROM item
+11:19:44:151 DEBUG 4636 --- [http-nio-8081-exec-1] c.h.i.m.ItemMapper.selectList_mpCount    : ==> Parameters: 
+11:19:44:169 DEBUG 4636 --- [http-nio-8081-exec-1] c.h.i.m.ItemMapper.selectList_mpCount    : <==      Total: 1
+11:19:44:181 DEBUG 4636 --- [http-nio-8081-exec-1] c.h.item.mapper.ItemMapper.selectList    : ==>  Preparing: SELECT id, name, price, stock, image, category, brand, spec, sold, comment_count, isAD, status, create_time, update_time, creater, updater FROM item ORDER BY update_time DESC LIMIT ?
+11:19:44:181 DEBUG 4636 --- [http-nio-8081-exec-1] c.h.item.mapper.ItemMapper.selectList    : ==> Parameters: 10(Long)
+11:19:44:201 DEBUG 4636 --- [http-nio-8081-exec-1] c.h.item.mapper.ItemMapper.selectList    : <==      Total: 10
+11:19:54:411 DEBUG 4636 --- [http-nio-8081-exec-7] c.h.i.m.ItemMapper.selectList_mpCount    : ==>  Preparing: SELECT COUNT(*) AS total FROM item
+11:19:54:411 DEBUG 4636 --- [http-nio-8081-exec-7] c.h.i.m.ItemMapper.selectList_mpCount    : ==> Parameters: 
+11:19:54:428 DEBUG 4636 --- [http-nio-8081-exec-7] c.h.i.m.ItemMapper.selectList_mpCount    : <==      Total: 1
+11:19:54:433 DEBUG 4636 --- [http-nio-8081-exec-7] c.h.item.mapper.ItemMapper.selectList    : ==>  Preparing: SELECT id, name, price, stock, image, category, brand, spec, sold, comment_count, isAD, status, create_time, update_time, creater, updater FROM item ORDER BY update_time DESC LIMIT ?
+11:19:54:433 DEBUG 4636 --- [http-nio-8081-exec-7] c.h.item.mapper.ItemMapper.selectList    : ==> Parameters: 2(Long)
+11:19:54:438 DEBUG 4636 --- [http-nio-8081-exec-7] c.h.item.mapper.ItemMapper.selectList    : <==      Total: 2
+11:27:01:227  INFO 4636 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+11:27:01:250  INFO 4636 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+12:09:01:866  INFO 15432 --- [main] com.hmall.item.ItemApplication           : Starting ItemApplication using Java 11.0.22 on Dpbiceps with PID 15432 (D:\JavaWeb\springcloud\hmall\item-service\target\classes started by Dp in D:\JavaWeb\springcloud\hmall)
+12:09:01:872 DEBUG 15432 --- [main] com.hmall.item.ItemApplication           : Running with Spring Boot v2.7.12, Spring v5.3.27
+12:09:01:872  INFO 15432 --- [main] com.hmall.item.ItemApplication           : The following 1 profile is active: "local"
+12:09:03:603  INFO 15432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+12:09:03:603  INFO 15432 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.37] using APR version [1.7.4].
+12:09:03:603  INFO 15432 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+12:09:03:603  INFO 15432 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+12:09:03:609  INFO 15432 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1u  30 May 2023]
+12:09:03:625  INFO 15432 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+12:09:03:625  INFO 15432 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+12:09:03:777  INFO 15432 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+12:09:03:777  INFO 15432 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1836 ms
+12:09:05:757  INFO 15432 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+12:09:05:898  INFO 15432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+12:09:05:898  INFO 15432 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+12:09:05:929  INFO 15432 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+12:09:05:961  INFO 15432 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+12:09:06:153  INFO 15432 --- [main] com.hmall.item.ItemApplication           : Started ItemApplication in 4.984 seconds (JVM running for 6.805)
+12:09:10:043  INFO 15432 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+12:09:10:045  INFO 15432 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+12:09:10:046  INFO 15432 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+12:09:22:285  INFO 15432 --- [http-nio-8081-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+12:09:30:796  INFO 15432 --- [http-nio-8081-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+12:09:30:812 DEBUG 15432 --- [http-nio-8081-exec-5] c.h.i.m.ItemMapper.selectList_mpCount    : ==>  Preparing: SELECT COUNT(*) AS total FROM item
+12:09:30:847 DEBUG 15432 --- [http-nio-8081-exec-5] c.h.i.m.ItemMapper.selectList_mpCount    : ==> Parameters: 
+12:09:30:900 DEBUG 15432 --- [http-nio-8081-exec-5] c.h.i.m.ItemMapper.selectList_mpCount    : <==      Total: 1
+12:09:30:961 DEBUG 15432 --- [http-nio-8081-exec-5] c.h.item.mapper.ItemMapper.selectList    : ==>  Preparing: SELECT id, name, price, stock, image, category, brand, spec, sold, comment_count, isAD, status, create_time, update_time, creater, updater FROM item ORDER BY update_time DESC LIMIT ?
+12:09:30:961 DEBUG 15432 --- [http-nio-8081-exec-5] c.h.item.mapper.ItemMapper.selectList    : ==> Parameters: 20(Long)
+12:09:30:989 DEBUG 15432 --- [http-nio-8081-exec-5] c.h.item.mapper.ItemMapper.selectList    : <==      Total: 20
+12:09:58:171 DEBUG 15432 --- [http-nio-8081-exec-7] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:09:58:171 DEBUG 15432 --- [http-nio-8081-exec-7] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 2120808(Long)
+12:09:58:178 DEBUG 15432 --- [http-nio-8081-exec-7] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:10:02:825 DEBUG 15432 --- [http-nio-8081-exec-9] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:10:02:825 DEBUG 15432 --- [http-nio-8081-exec-9] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 2120808(Long)
+12:10:02:830 DEBUG 15432 --- [http-nio-8081-exec-9] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:21:35:791  INFO 15432 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+12:21:35:815  INFO 15432 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+12:22:38:619  INFO 6068 --- [main] com.hmall.item.ItemApplication           : Starting ItemApplication using Java 11.0.22 on Dpbiceps with PID 6068 (D:\JavaWeb\springcloud\hmall\item-service\target\classes started by Dp in D:\JavaWeb\springcloud\hmall)
+12:22:38:619 DEBUG 6068 --- [main] com.hmall.item.ItemApplication           : Running with Spring Boot v2.7.12, Spring v5.3.27
+12:22:38:619  INFO 6068 --- [main] com.hmall.item.ItemApplication           : The following 1 profile is active: "local"
+12:22:40:209  INFO 6068 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+12:22:40:209  INFO 6068 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.37] using APR version [1.7.4].
+12:22:40:209  INFO 6068 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+12:22:40:209  INFO 6068 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+12:22:40:217  INFO 6068 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1u  30 May 2023]
+12:22:40:228  INFO 6068 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+12:22:40:228  INFO 6068 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+12:22:40:384  INFO 6068 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+12:22:40:384  INFO 6068 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1688 ms
+12:22:42:151  INFO 6068 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+12:22:42:295  INFO 6068 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+12:22:42:297  INFO 6068 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+12:22:42:300  INFO 6068 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+12:22:42:328  INFO 6068 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+12:22:42:516  INFO 6068 --- [main] com.hmall.item.ItemApplication           : Started ItemApplication in 4.535 seconds (JVM running for 6.412)
+12:24:57:038  INFO 6068 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+12:24:57:048  INFO 6068 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+12:24:57:050  INFO 6068 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+12:43:21:590  INFO 6068 --- [http-nio-8081-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+12:43:29:991  INFO 6068 --- [http-nio-8081-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+12:43:30:003 DEBUG 6068 --- [http-nio-8081-exec-4] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:43:30:027 DEBUG 6068 --- [http-nio-8081-exec-4] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 100000006163(Long)
+12:43:30:063 DEBUG 6068 --- [http-nio-8081-exec-4] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:44:02:545 DEBUG 6068 --- [http-nio-8081-exec-5] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:44:02:545 DEBUG 6068 --- [http-nio-8081-exec-5] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 100000006163(Long)
+12:44:02:548 DEBUG 6068 --- [http-nio-8081-exec-5] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:44:21:708 DEBUG 6068 --- [http-nio-8081-exec-6] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:44:21:708 DEBUG 6068 --- [http-nio-8081-exec-6] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 100000006163(Long)
+12:44:21:718 DEBUG 6068 --- [http-nio-8081-exec-6] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:45:22:006 DEBUG 6068 --- [http-nio-8081-exec-7] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:45:22:007 DEBUG 6068 --- [http-nio-8081-exec-7] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 100000006163(Long)
+12:45:22:012 DEBUG 6068 --- [http-nio-8081-exec-7] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:45:28:970 DEBUG 6068 --- [http-nio-8081-exec-9] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:45:28:973 DEBUG 6068 --- [http-nio-8081-exec-9] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 100000006163(Long)
+12:45:28:976 DEBUG 6068 --- [http-nio-8081-exec-9] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:45:29:900 DEBUG 6068 --- [http-nio-8081-exec-10] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:45:29:900 DEBUG 6068 --- [http-nio-8081-exec-10] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 100000006163(Long)
+12:45:29:904 DEBUG 6068 --- [http-nio-8081-exec-10] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:45:30:426 DEBUG 6068 --- [http-nio-8081-exec-1] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:45:30:426 DEBUG 6068 --- [http-nio-8081-exec-1] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 100000006163(Long)
+12:45:30:426 DEBUG 6068 --- [http-nio-8081-exec-1] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:45:30:785 DEBUG 6068 --- [http-nio-8081-exec-2] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:45:30:785 DEBUG 6068 --- [http-nio-8081-exec-2] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 100000006163(Long)
+12:45:30:788 DEBUG 6068 --- [http-nio-8081-exec-2] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:45:31:142 DEBUG 6068 --- [http-nio-8081-exec-3] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:45:31:142 DEBUG 6068 --- [http-nio-8081-exec-3] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 100000006163(Long)
+12:45:31:155 DEBUG 6068 --- [http-nio-8081-exec-3] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:45:31:552 DEBUG 6068 --- [http-nio-8081-exec-4] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:45:31:555 DEBUG 6068 --- [http-nio-8081-exec-4] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 100000006163(Long)
+12:45:31:557 DEBUG 6068 --- [http-nio-8081-exec-4] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:45:31:942 DEBUG 6068 --- [http-nio-8081-exec-5] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:45:31:942 DEBUG 6068 --- [http-nio-8081-exec-5] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 100000006163(Long)
+12:45:31:942 DEBUG 6068 --- [http-nio-8081-exec-5] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:45:32:346 DEBUG 6068 --- [http-nio-8081-exec-6] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:45:32:346 DEBUG 6068 --- [http-nio-8081-exec-6] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 100000006163(Long)
+12:45:32:346 DEBUG 6068 --- [http-nio-8081-exec-6] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+12:46:35:864 DEBUG 6068 --- [http-nio-8081-exec-8] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+12:46:35:867 DEBUG 6068 --- [http-nio-8081-exec-8] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 100000006163(Long)
+12:46:35:870 DEBUG 6068 --- [http-nio-8081-exec-8] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 1
+15:12:35:402  INFO 19964 --- [main] com.hmall.item.ItemApplication           : Starting ItemApplication using Java 11.0.22 on Dpbiceps with PID 19964 (D:\JavaWeb\springcloud\hmall\item-service\target\classes started by Dp in D:\JavaWeb\springcloud\hmall)
+15:12:35:413 DEBUG 19964 --- [main] com.hmall.item.ItemApplication           : Running with Spring Boot v2.7.12, Spring v5.3.27
+15:12:35:415  INFO 19964 --- [main] com.hmall.item.ItemApplication           : The following 1 profile is active: "local"
+15:12:36:001  INFO 19964 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=16d47e7d-8a8e-3c24-b65c-14372622b52b
+15:12:36:235  INFO 19964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+15:12:36:235  INFO 19964 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.37] using APR version [1.7.4].
+15:12:36:235  INFO 19964 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+15:12:36:235  INFO 19964 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+15:12:36:235  INFO 19964 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1u  30 May 2023]
+15:12:36:246  INFO 19964 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+15:12:36:246  INFO 19964 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+15:12:36:331  INFO 19964 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+15:12:36:331  INFO 19964 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 901 ms
+15:12:37:545  INFO 19964 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+15:12:38:084  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [RpcClientFactory] create a new rpc client of ce75fbce-063b-48bd-b0f3-3a58a11cf368
+15:12:38:114  INFO 19964 --- [main] org.reflections.Reflections              : Reflections took 14 ms to scan 1 urls, producing 3 keys and 6 values 
+15:12:38:132  INFO 19964 --- [main] org.reflections.Reflections              : Reflections took 7 ms to scan 1 urls, producing 4 keys and 9 values 
+15:12:38:138  INFO 19964 --- [main] org.reflections.Reflections              : Reflections took 2 ms to scan 1 urls, producing 3 keys and 10 values 
+15:12:38:138  WARN 19964 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
+15:12:38:147  INFO 19964 --- [main] org.reflections.Reflections              : Reflections took 9 ms to scan 1 urls, producing 1 keys and 5 values 
+15:12:38:147  INFO 19964 --- [main] org.reflections.Reflections              : Reflections took 0 ms to scan 1 urls, producing 1 keys and 7 values 
+15:12:38:158  INFO 19964 --- [main] org.reflections.Reflections              : Reflections took 0 ms to scan 1 urls, producing 2 keys and 8 values 
+15:12:38:158  WARN 19964 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
+15:12:38:158  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [ce75fbce-063b-48bd-b0f3-3a58a11cf368] RpcClient init label, labels = {module=naming, source=sdk}
+15:12:38:158  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [ce75fbce-063b-48bd-b0f3-3a58a11cf368] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+15:12:38:158  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [ce75fbce-063b-48bd-b0f3-3a58a11cf368] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+15:12:38:158  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [ce75fbce-063b-48bd-b0f3-3a58a11cf368] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+15:12:38:169  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [ce75fbce-063b-48bd-b0f3-3a58a11cf368] Try to connect to server on start up, server: {serverIp = '192.168.31.128', server main port = 8848}
+15:12:39:672  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [ce75fbce-063b-48bd-b0f3-3a58a11cf368] Success to connect to server [192.168.31.128:8848] on start up, connectionId = 1715584359485_192.168.31.1_56142
+15:12:39:672  INFO 19964 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [ce75fbce-063b-48bd-b0f3-3a58a11cf368] Notify connected event to listeners.
+15:12:39:672  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [ce75fbce-063b-48bd-b0f3-3a58a11cf368] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+15:12:39:672  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [ce75fbce-063b-48bd-b0f3-3a58a11cf368] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$934/0x0000000800683840
+15:12:39:714  WARN 19964 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8081 is already in use
+15:12:40:291  INFO 19964 --- [nacos-grpc-client-executor-8] com.alibaba.nacos.common.remote.client   : [ce75fbce-063b-48bd-b0f3-3a58a11cf368] Receive server push request, request = NotifySubscriberRequest, requestId = 1
+15:12:40:293  INFO 19964 --- [nacos-grpc-client-executor-8] com.alibaba.nacos.common.remote.client   : [ce75fbce-063b-48bd-b0f3-3a58a11cf368] Ack server push request, request = NotifySubscriberRequest, requestId = 1
+15:12:40:364  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : Shutdown rpc client, set status to shutdown
+15:12:40:364  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@1e429f56[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+15:12:40:364  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : Close current connection 1715584359485_192.168.31.1_56142
+15:12:40:366  INFO 19964 --- [main] c.a.n.c.remote.client.grpc.GrpcClient    : Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@23c00420[Running, pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9]
+15:12:40:371  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [RpcClientFactory] create a new rpc client of 5dacf5e1-1b05-4ef0-8446-f593e7a8f111
+15:12:40:371  INFO 19964 --- [grpc-nio-worker-ELG-1-2] c.a.n.s.i.g.i.AbstractClientStream       : Received trailers on closed stream:
+ Metadata()
+ {2}
+15:12:40:371  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [5dacf5e1-1b05-4ef0-8446-f593e7a8f111] RpcClient init label, labels = {module=naming, source=sdk}
+15:12:40:371  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [5dacf5e1-1b05-4ef0-8446-f593e7a8f111] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+15:12:40:371  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [5dacf5e1-1b05-4ef0-8446-f593e7a8f111] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+15:12:40:371  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [5dacf5e1-1b05-4ef0-8446-f593e7a8f111] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+15:12:40:371  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [5dacf5e1-1b05-4ef0-8446-f593e7a8f111] Try to connect to server on start up, server: {serverIp = '192.168.31.128', server main port = 8848}
+15:12:40:501  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [5dacf5e1-1b05-4ef0-8446-f593e7a8f111] Success to connect to server [192.168.31.128:8848] on start up, connectionId = 1715584360382_192.168.31.1_56143
+15:12:40:501  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [5dacf5e1-1b05-4ef0-8446-f593e7a8f111] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+15:12:40:501  INFO 19964 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [5dacf5e1-1b05-4ef0-8446-f593e7a8f111] Notify connected event to listeners.
+15:12:40:501  INFO 19964 --- [main] com.alibaba.nacos.common.remote.client   : [5dacf5e1-1b05-4ef0-8446-f593e7a8f111] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$934/0x0000000800683840
+15:12:40:508  INFO 19964 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+15:12:40:523  INFO 19964 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+15:12:40:536 ERROR 19964 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+15:12:40:536  WARN 19964 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+15:12:40:536  WARN 19964 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+15:12:40:536  WARN 19964 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+15:12:40:536  WARN 19964 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
