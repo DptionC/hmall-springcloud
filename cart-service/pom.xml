@@ -24,7 +24,6 @@
             <version>1.0.0</version>
         </dependency>
 
-        <!--item-cart-->
         <!--web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
