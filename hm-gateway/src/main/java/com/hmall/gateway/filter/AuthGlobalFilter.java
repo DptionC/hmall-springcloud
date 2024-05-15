@@ -58,10 +58,14 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             //表示完结了，不往后走了，其下的拦截器也不会执行。
             return response.setComplete();
         }
-        //5.TODO 传递用户信息
-        System.out.println("当前userId = " + userId);
+        //5.传递用户信息
+        String userInfo = userId.toString();
+        //mutae就是对下游请求做更改
+        ServerWebExchange serverWebExchange = exchange.mutate()
+                .request(builder -> builder.header("user-info", userInfo))
+                .build();
         //6.放行
-        return chain.filter(exchange);
+        return chain.filter(serverWebExchange);
     }
 
     private boolean isExclude(String path) {
