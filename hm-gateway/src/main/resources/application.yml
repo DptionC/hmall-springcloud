@@ -5,8 +5,7 @@ spring:
     name: hm-gateway
   cloud:
     nacos:
-      discovery:
-        server-addr: 192.168.31.128
+      server-addr: 192.168.31.128
     gateway:
       routes:
           - id: item-service

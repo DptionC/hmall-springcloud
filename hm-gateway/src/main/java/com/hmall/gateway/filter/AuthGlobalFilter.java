@@ -61,11 +61,11 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
         //5.传递用户信息
         String userInfo = userId.toString();
         //mutae就是对下游请求做更改
-        ServerWebExchange serverWebExchange = exchange.mutate()
+        ServerWebExchange ex = exchange.mutate()
                 .request(builder -> builder.header("user-info", userInfo))
                 .build();
         //6.放行
-        return chain.filter(serverWebExchange);
+        return chain.filter(ex);
     }
 
     private boolean isExclude(String path) {

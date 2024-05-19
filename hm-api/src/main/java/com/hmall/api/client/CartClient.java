@@ -1,5 +1,7 @@
 package com.hmall.api.client;
 
+import com.hmall.api.client.fallback.CartClientFallback;
+import com.hmall.api.config.DefaultFeignConfig;
 import com.hmall.api.dto.ItemDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,7 +15,9 @@ import java.util.List;
  * @DateTime：2024/5/14 17:42
  **/
 
-@FeignClient(value = "cart-service")
+@FeignClient(value = "cart-service",
+        configuration = DefaultFeignConfig.class,
+        fallbackFactory = CartClientFallback.class)
 public interface CartClient {
 
     @DeleteMapping("/carts")
