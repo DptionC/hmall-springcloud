@@ -1,5 +1,6 @@
 package com.hmall.trade.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hmall.api.client.CartClient;
 import com.hmall.api.client.ItemClient;
@@ -8,6 +9,7 @@ import com.hmall.api.dto.OrderDetailDTO;
 import com.hmall.common.exception.BadRequestException;
 import com.hmall.common.utils.UserContext;
 
+import com.hmall.trade.constants.MqConstants;
 import com.hmall.trade.domain.dto.OrderFormDTO;
 import com.hmall.trade.domain.po.Order;
 import com.hmall.trade.domain.po.OrderDetail;
@@ -16,14 +18,17 @@ import com.hmall.trade.service.IOrderDetailService;
 import com.hmall.trade.service.IOrderService;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
+import org.springframework.amqp.AmqpException;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessagePostProcessor;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -36,12 +41,13 @@ import java.util.stream.Collectors;
  */
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements IOrderService {
 
     private final ItemClient itemClient;
     private final IOrderDetailService detailService;
     private final CartClient cartClient;
-
+    private final RabbitTemplate rabbitTemplate;
     @Override
     @GlobalTransactional
     public Long createOrder(OrderFormDTO orderFormDTO) {
@@ -84,6 +90,23 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         }
         // 4.清理购物车商品
         cartClient.removeByItemIds(itemIds);
+        // try {
+        //     // Map<String, Object> message = new HashMap<>();
+        //     // message.put("userId", UserContext.getUser());
+        //     // message.put("ItemIds", itemIds);
+        //     rabbitTemplate.convertAndSend("trade.topic","order.create",itemIds);
+        // } catch (Exception e) {
+        //     log.error("清理购物车商品消息发送失败，用户信息：{}，商品id：{}", UserContext.getUser(), itemIds, e);
+        // }
+        //5. 发送延迟信息，检测订单状态
+        rabbitTemplate.convertAndSend(
+                MqConstants.DELAY_EXCHANGE_NAME,
+                MqConstants.DELAY_ORDER_KEY,
+                order.getId(),
+                message -> {
+                    message.getMessageProperties().setDelay(30000);
+                    return message;
+                });
         return order.getId();
     }
 
@@ -94,6 +117,36 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         order.setStatus(2);
         order.setPayTime(LocalDateTime.now());
         updateById(order);
+    }
+
+    /**
+     * 取消订单，恢复商品
+     * @param orderId
+     */
+    @Override
+    public void cancelOrder(Long orderId) {
+        //TODO 标记订单已关闭
+        Order order = new Order();
+        order.setId(orderId);
+        order.setStatus(5);
+        order.setCloseTime(LocalDateTime.now());
+        updateById(order);
+
+        //TODO 恢复库存
+        List<OrderDetail> orderDetailList = detailService.lambdaQuery()
+                .eq(OrderDetail::getOrderId, orderId)
+                .list();
+
+        for (OrderDetail orderDetail : orderDetailList) {
+            Long itemId = orderDetail.getItemId();
+            Integer itemNum = orderDetail.getNum();
+
+            ItemDTO item = itemClient.queryItemById(orderDetail.getItemId());
+            ItemDTO itemDTO = new ItemDTO();
+            itemDTO.setId(itemId);
+            itemDTO.setStock(item.getStock() + itemNum);
+            itemClient.updateItem(itemDTO);
+        }
     }
 
     private List<OrderDetail> buildDetails(Long orderId, List<ItemDTO> items, Map<Long, Integer> numMap) {

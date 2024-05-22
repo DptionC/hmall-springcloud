@@ -69,12 +69,12 @@ public class PayOrderServiceImpl extends ServiceImpl<PayOrderMapper, PayOrder> i
         }
         // 5.修改订单状态
         // tradeClient.markOrderPaySuccess(po.getBizOrderNo());
-        try {
-            //使用RabbitMQ进行发送订单id到交换机上，再由订单在交换机接收处理
-            rabbitTemplate.convertAndSend("pay.direct","pay.success",po.getBizOrderNo());
-        } catch (Exception e) {
-            log.error("支付成功消息发送失败，支付id:{},订单id:{}",po.getId(),po.getBizOrderNo(),e);
-        }
+        // try {
+        //     //使用RabbitMQ进行发送订单id到交换机上，再由订单在交换机接收处理
+        //     rabbitTemplate.convertAndSend("pay.direct","pay.success",po.getBizOrderNo());
+        // } catch (Exception e) {
+        //     log.error("支付成功消息发送失败，支付id:{},订单id:{}",po.getId(),po.getBizOrderNo(),e);
+        // }
     }
 
     public boolean markPayOrderSuccess(Long id, LocalDateTime successTime) {

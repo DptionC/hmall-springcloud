@@ -2,6 +2,9 @@ package com.hmall.trade.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.hmall.trade.domain.po.OrderDetail;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,9 @@ import com.hmall.trade.domain.po.OrderDetail;
  */
 public interface OrderDetailMapper extends BaseMapper<OrderDetail> {
 
+    @Select("select order_id,item_id,num from `hm-trade`.order_detail where id = #{orderId}")
+    List<OrderDetail> getByOrderId(Long orderId);
+
+    @Select("select num from `hm-trade`.order_detail where order_id = #{orderId} and item_id = #{itemId}")
+    OrderDetail getItemNumByItemId(Long orderId,Long itemId);
 }

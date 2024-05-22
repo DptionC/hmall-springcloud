@@ -34,6 +34,16 @@ public class ItemClientFallback implements FallbackFactory<ItemClient> {
                 // 查询购物车允许失败，查询失败，返回空集合
                 return CollUtils.emptyList();
             }
+
+            @Override
+            public void updateItem(ItemDTO item) {
+
+            }
+
+            @Override
+            public ItemDTO queryItemById(Long id) {
+                return null;
+            }
         };
     }
 }
